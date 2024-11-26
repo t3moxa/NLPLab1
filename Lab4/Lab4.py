@@ -9,7 +9,7 @@ import torch
 name = 'bert-base-multilingual-uncased'
 tokenizer = BertTokenizer.from_pretrained(name)
 model = BertForMaskedLM.from_pretrained(name, return_dict = True)
-text = "Спортсмен " + tokenizer.mask_token + " на беговой дорожке."
+text = "Путник " + tokenizer.mask_token + " в лесу навсегда."
 input = tokenizer.encode_plus(text, return_tensors = "pt")
 mask_index = torch.where(input["input_ids"][0] == tokenizer.mask_token_id)
 output = model(**input)
